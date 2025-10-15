@@ -1,0 +1,12 @@
+{
+  "openai_api_key": "***REMOVED***",
+  "google_credentials_path": "clean-outcome-472421-k0-f39e1867604f.json",
+  "google_drive_folder_id": "1WX06lWTYYZBdLHngZE9eO37fGQKNKWoX",
+  "spreadsheet_id": "15jsmGxHEI1GVjy2w6uhRWrdnXOdFqkp4mMeyVq8hiGk",
+  "analysis_sheet_name": "Анализ звонков",
+  "checklist_sheet_name": "Входящие Елизавета",
+  "manager_names": [
+    "Елизавета"
+  ],
+  "company_name": "Весткол"
+}

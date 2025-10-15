@@ -1,0 +1,1368 @@
+{
+  "name": "CallAutomatizationЛейсан",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "15jsmGxHEI1GVjy2w6uhRWrdnXOdFqkp4mMeyVq8hiGk",
+          "mode": "list",
+          "cachedResultName": "Анализ звонков",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15jsmGxHEI1GVjy2w6uhRWrdnXOdFqkp4mMeyVq8hiGk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Лист1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15jsmGxHEI1GVjy2w6uhRWrdnXOdFqkp4mMeyVq8hiGk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Дата и время": "={{ $now.format('dd-MM-yyyy HH:mm') }}",
+            "Резюме разговора (коротко)": "={{ $json.output.properties.summary.description }}",
+            "Преимущественно говорит клиент": "={{ $json.output.properties.client_talks_most.description }}",
+            "Адаптация под стиль и речь клиента": "={{ $json.output.properties.style_adaptation.description }}",
+            "Имя клиента": "={{ $json.output.properties.client_name.description }}",
+            "Потребности": "={{ $json.output.properties.client_needs.description }}",
+            "Следующий шаг": "={{ $json.output.properties.next_step.description }}",
+            "Вероятность продажи": "={{ $json.output.properties.sale_probability.properties.value.description }}",
+            "Скрытые возражения, которые не закрыты": "={{ $json.output.properties.hidden_objections.description }}",
+            "Объяснение оценки - контакт": "={{ $json.output.properties.contact_establishment.properties.explanation.description }}",
+            "Объяснение оценки - квалификация": "={{ $json.output.properties.qualification.properties.explanation.description }}",
+            "Объяснение оценки - потребность": "={{ $json.output.properties.needs_identification.properties.explanation.description }}",
+            "Объяснение оценки - презентация": "={{ $json.output.properties.product_presentation.properties.explanation.description }}",
+            "Объяснение оценки - закрытие": "={{ $json.output.properties.closing.properties.explanation.description }}",
+            "Объяснение оценки - возражения": "={{ $json.output.properties.objection_handling.properties.explanation.description }}",
+            "Транскрибация звонка": "={{ $('Message a model1').item.json.message.content }}",
+            "Целевой клиент": "={{ $json.output.properties.target_client }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Дата и время",
+              "displayName": "Дата и время",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Транскрибация звонка",
+              "displayName": "Транскрибация звонка",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Резюме разговора (коротко)",
+              "displayName": "Резюме разговора (коротко)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Преимущественно говорит клиент",
+              "displayName": "Преимущественно говорит клиент",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Адаптация под стиль и речь клиента",
+              "displayName": "Адаптация под стиль и речь клиента",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Имя клиента",
+              "displayName": "Имя клиента",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Целевой клиент",
+              "displayName": "Целевой клиент",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Потребности",
+              "displayName": "Потребности",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Установление контакта (в том числе смол ток)",
+              "displayName": "Установление контакта (в том числе смол ток)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Объяснение оценки - контакт",
+              "displayName": "Объяснение оценки - контакт",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Квалификация (откуда узнал о клубе, уровень знакомства с клубом, почему именно сейчас ищет решение)",
+              "displayName": "Квалификация (откуда узнал о клубе, уровень знакомства с клубом, почему именно сейчас ищет решение)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Объяснение оценки - квалификация",
+              "displayName": "Объяснение оценки - квалификация",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Выявление протребности (минимум 4 задачи/цели бизнеса, уточняющие и «глубокие» вопросы, ответы не только про бизнес, но и про личные бол, итоги)",
+              "displayName": "Выявление протребности (минимум 4 задачи/цели бизнеса, уточняющие и «глубокие» вопросы, ответы не только про бизнес, но и про личные бол, итоги)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Объяснение оценки - потребность",
+              "displayName": "Объяснение оценки - потребность",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Презентация продукта / услуги (связка “боль – формат клуба – результат”, цитаты клиента и его слова, использовал примеры, рассказал примеры)",
+              "displayName": "Презентация продукта / услуги (связка “боль – формат клуба – результат”, цитаты клиента и его слова, использовал примеры, рассказал примеры)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Объяснение оценки - презентация",
+              "displayName": "Объяснение оценки - презентация",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Отработка возражения (Отработка хотя бы 2 типов возражений, задавал уточняющие вопросы к возражению)",
+              "displayName": "Отработка возражения (Отработка хотя бы 2 типов возражений, задавал уточняющие вопросы к возражению)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Объяснение оценки - возражения",
+              "displayName": "Объяснение оценки - возражения",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Скрытые возражения, которые не закрыты",
+              "displayName": "Скрытые возражения, которые не закрыты",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Закрытие (Презентовал \"ван тайм оффер\" корректно, Попытка закрытия на встрече)",
+              "displayName": "Закрытие (Презентовал \"ван тайм оффер\" корректно, Попытка закрытия на встрече)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Объяснение оценки - закрытие",
+              "displayName": "Объяснение оценки - закрытие",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Вероятность продажи",
+              "displayName": "Вероятность продажи",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Объяснение оценки - вероятность продажи",
+              "displayName": "Объяснение оценки - вероятность продажи",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Следующий шаг",
+              "displayName": "Следующий шаг",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "96d6e69c-04b7-4b36-aace-231d56f42683",
+      "name": "Append row in sheet (Анализ)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -784,
+        848
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "MjVZ9vkfpgTkT9fP",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "15jsmGxHEI1GVjy2w6uhRWrdnXOdFqkp4mMeyVq8hiGk",
+          "mode": "list"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1423285250,
+          "mode": "list",
+          "cachedResultName": "Входящие Елизавета",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15jsmGxHEI1GVjy2w6uhRWrdnXOdFqkp4mMeyVq8hiGk/edit#gid=1423285250"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Время до соединения с менеджером": "=",
+            "Корпоративное приветсвие": "={{ $json.output['Этап ПРИВЕТСТВИЕ']['Корпоративное приветсвие'] }}",
+            "Тон добродушный, приветливый, есть улыбка в голосе": "={{ $json.output['Этап ПРИВЕТСТВИЕ']['Тон добродушный, приветливый, есть улыбка в голосе'] }}",
+            "Не тараторит, не съедает слова": "={{ $json.output['Этап ПРИВЕТСТВИЕ']['Не тараторит, не съедает слова'] }}",
+            "Озвучивает цель звонка\\ инфоповод": "={{ $json.output['Этап ПРИВЕТСТВИЕ']['Озвучивает цель звонка инфоповод'] }}",
+            "Не использует фразу \"вам удобно разговаривать\"": "={{ $json.output['Этап ПРИВЕТСТВИЕ']['Не использует фразу \\'вам удобно разговаривать\\''] }}",
+            "Не использует фразу \"как к вам можно обращаться\"": "={{ $json.output['Этап ПРИВЕТСТВИЕ']['Не использует фразу \\'как к вам можно обращаться\\''] }}",
+            "Транскрибация": "={{ $('Message a model1').item.json.message.content }}",
+            "Обращается по имени, минимум 2 раза": "={{ $json.output['Этап УСТАНОВЛЕНИЕ КОНТАКТА']['Обращается по имени, минимум 2 раза'] }}",
+            "Не перебивает, дослушивает до конца": "={{ $json.output['Этап УСТАНОВЛЕНИЕ КОНТАКТА']['Не перебивает, дослушивает до конца'] }}",
+            "Говорит на простом понятном языке": "={{ $json.output['Этап УСТАНОВЛЕНИЕ КОНТАКТА']['Говорит на простом понятном языке'] }}",
+            "Отсутствует сухой формальный тон": "={{ $json.output['Этап УСТАНОВЛЕНИЕ КОНТАКТА']['Отсутствует сухой формальный тон'] }}",
+            "Общается на \"равных\"": "={{ $json.output['Этап УСТАНОВЛЕНИЕ КОНТАКТА']['Общается на \\'равных\\''] }}",
+            "Использует приемы Small talk (погода,праздники, события, отдых, путешествия и экскурсии,искусство и хобби, интересы, спорт, покупки, пробки на дорогах, новости, события в городе)": "={{ $json.output['Этап УСТАНОВЛЕНИЕ КОНТАКТА']['Использует приемы Small talk'] }}",
+            "Говорит комплимент, похвалу (про компании,про сайт, собеседнику)": "={{ $json.output['Этап УСТАНОВЛЕНИЕ КОНТАКТА']['Говорит комплимент, похвалу'] }}",
+            "Использует юмор (анекдот, шутка)": "={{ $json.output['Этап УСТАНОВЛЕНИЕ КОНТАКТА']['Использует юмор'] }}",
+            "Задал обязательные вопросы": "={{ $json.output['Этап СОЗДАНИЯ ПОТРЕБНОСТИ']['Задал обязательные вопросы'] }}",
+            "Делает презентацию компании с перечислением услуг, которые мы можем предоставить": "={{ $json.output['Этап СОЗДАНИЯ ПОТРЕБНОСТИ']['Делает презентацию компании'] }}",
+            "Резюмировал разговор": "={{ $json.output['ЭТАП ЗАВЕРШЕНИЯ']['Резюмировал разговор'] }}",
+            "ВСЕГО": "={{ $json.output['ВСЕГО'] }}",
+            "Уточняет куда удобнее клиенту получить КП, если договорились об отправке": "={{ $json.output['ЭТАП ЗАВЕРШЕНИЯ']['Уточняет куда отправить КП'] }}",
+            "Спросить к какой дате необходимо предоставить услугу": "={{ $json.output['ЭТАП ЗАВЕРШЕНИЯ']['Спросить к какой дате нужна услуга'] }}",
+            "Озвучивает следующие шаги действий со сроками": "={{ $json.output['ЭТАП ЗАВЕРШЕНИЯ']['Озвучивает следующие шаги'] }}",
+            "Оставил свои контактные данные и поблагодарил за звонок": "={{ $json.output['ЭТАП ЗАВЕРШЕНИЯ']['Оставил контакты и поблагодарил'] }}",
+            "Уточняет , остались ли у клиента вопросы, сомнения": "={{ $json.output['ЭТАП ЗАВЕРШЕНИЯ']['Уточняет остались ли вопросы'] }}",
+            "Не спорит с клиентом, не использует формулировки, которые нарушают границы клиента": "={{ $json.output['Этап РАБОТА С СОМНЕНИЯМИ']['Не спорит с клиентом'] }}",
+            "После отработки возражения идет предложение отправки КП для начала сотрудничества": "={{ $json.output['Этап РАБОТА С СОМНЕНИЯМИ']['Предлагает отправить КП после отработки'] }}",
+            "Аргументы на отработку возражения соответствуют возражению": "={{ $json.output['Этап РАБОТА С СОМНЕНИЯМИ']['Аргументы соответствуют возражению'] }}",
+            "Присоединяется, когда отрабатывает возражения": "={{ $json.output['Этап РАБОТА С СОМНЕНИЯМИ']['Присоединяется при отработке возражений'] }}",
+            "Отрабатывает все возражения, без исключения в 100%": "={{ $json.output['Этап РАБОТА С СОМНЕНИЯМИ']['Отрабатывает все возражения'] }}",
+            "Менеджер знает продукт о котором рассказывает и не допускает ошибок": "={{ $json.output['Этап ПРЕЗЕНТАЦИЯ']['Менеджер знает продукт'] }}",
+            "Делает предложение отправить КП по новым услугам или попробовать тестовый период (если есть)": "={{ $json.output['Этап ПРЕЗЕНТАЦИЯ']['Предлагает отправить КП или тестовый период'] }}",
+            "Рассказывает о положительных отзывах или успешных кейсах, связанных с дополнительными услугами": "={{ $json.output['Этап ПРЕЗЕНТАЦИЯ']['Рассказывает о кейсах или отзывах'] }}",
+            "Делает презентацию 2-3 услуг, которые подходят по сфере деятельности, выделяя преимущества и выгоды каждой услуги. (видеонаблюдение, виртуальная АТС, облачное хранение, защита DDOS-атак)": "={{ $json.output['Этап ПРЕЗЕНТАЦИЯ']['Делает презентацию 2-3 услуг'] }}",
+            "Использует прграммирование в начале разговора, чтобы контроль хода общения был на стороне менеджера": "={{ $json.output['Этап ПРОГРАММИРОВАНИЯ']['Использует программирование в начале разговора'] }}",
+            "На протяжении всего диалога менеджер \"ведет\", а не наоборот": "={{ $json.output['Этап ПРОГРАММИРОВАНИЯ']['На протяжении всего диалога менеджер \\'ведет\\''] }}",
+            "Не говорит \"Мы оператор/провайдер интернет услуг\"": "={{ $json.output['Этап СОЗДАНИЯ ПОТРЕБНОСТИ']['Не говорит \\'Мы оператор/провайдер интернет услуг\\''] }}",
+            "Выясняет чем занимается компания, какая сфера деятельности": "={{ $json.output['Этап СОЗДАНИЯ ПОТРЕБНОСТИ']['Выясняет чем занимается компания'] }}",
+            "Выясняет подключена ли услуга интернет? Какой провайдер? Устраивает ли скорость , качество услуги интернет": "={{ $json.output['Этап СОЗДАНИЯ ПОТРЕБНОСТИ']['Выясняет подключена ли услуга интернет'] }}",
+            "Если все устраивает, узнает возможности предоставления резервного канала": "={{ $json.output['Этап СОЗДАНИЯ ПОТРЕБНОСТИ']['Если все устраивает, узнает про резервный канал'] }}",
+            "Узнает, о случаях атак, для дальнейшего предложения услуги DDOS - защиты": "={{ $json.output['Этап СОЗДАНИЯ ПОТРЕБНОСТИ']['Узнает о случаях атак'] }}",
+            "Задает вопросы для того, чтобы бы предложить наши дополнительнительные услуги (Колокейшн, видеонаблюдения, облачные решения и другие)": "={{ $json.output['Этап СОЗДАНИЯ ПОТРЕБНОСТИ']['Задает вопросы про доп. услуги'] }}",
+            "Зтап ПРИВЕТСВИЕ Итого": "={{ $json.output['Этап ПРИВЕТСТВИЕ']['Итого'] }}",
+            "Итого УСТАНОВЛЕНИЕ КОНТАКТА": "={{ $json.output['Этап УСТАНОВЛЕНИЕ КОНТАКТА']['Итого'] }}",
+            "Итого ПРОГРАММИРОВАНИЕ": "={{ $json.output['Этап ПРОГРАММИРОВАНИЯ']['Итого'] }}",
+            "Итого СОЗДАНИЯ ПОТРЕБНОСТИ": "={{ $json.output['Этап СОЗДАНИЯ ПОТРЕБНОСТИ']['Итого'] }}",
+            "Итого ПРЕЗЕНТАЦИЯ": "={{ $json.output['Этап ПРЕЗЕНТАЦИЯ']['Итого'] }}",
+            "Итого РАБОТА С СОМНЕНИЯМИ": "={{ $json.output['Этап РАБОТА С СОМНЕНИЯМИ']['Итого'] }}",
+            "Итого ЗАВЕРШЕНИЕ": "={{ $json.output['ЭТАП ЗАВЕРШЕНИЯ']['Итого'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Зтап ПРИВЕТСВИЕ",
+              "displayName": "Зтап ПРИВЕТСВИЕ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Время до соединения с менеджером",
+              "displayName": "Время до соединения с менеджером",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Корпоративное приветсвие",
+              "displayName": "Корпоративное приветсвие",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Тон добродушный, приветливый, есть улыбка в голосе",
+              "displayName": "Тон добродушный, приветливый, есть улыбка в голосе",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Не тараторит, не съедает слова",
+              "displayName": "Не тараторит, не съедает слова",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Озвучивает цель звонка\\ инфоповод",
+              "displayName": "Озвучивает цель звонка\\ инфоповод",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Не использует фразу \"вам удобно разговаривать\"",
+              "displayName": "Не использует фразу \"вам удобно разговаривать\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Не использует фразу \"как к вам можно обращаться\"",
+              "displayName": "Не использует фразу \"как к вам можно обращаться\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Зтап ПРИВЕТСВИЕ Итого",
+              "displayName": "Зтап ПРИВЕТСВИЕ Итого",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Этап УСТАНОВЛЕНИЕ КОНТАКТА (оценивается на протяжении всего диалога)",
+              "displayName": "Этап УСТАНОВЛЕНИЕ КОНТАКТА (оценивается на протяжении всего диалога)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Обращается по имени, минимум 2 раза",
+              "displayName": "Обращается по имени, минимум 2 раза",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Не перебивает, дослушивает до конца",
+              "displayName": "Не перебивает, дослушивает до конца",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Говорит на простом понятном языке",
+              "displayName": "Говорит на простом понятном языке",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Отсутствует сухой формальный тон",
+              "displayName": "Отсутствует сухой формальный тон",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Общается на \"равных\"",
+              "displayName": "Общается на \"равных\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Использует приемы Small talk (погода,праздники, события, отдых, путешествия и экскурсии,искусство и хобби, интересы, спорт, покупки, пробки на дорогах, новости, события в городе)",
+              "displayName": "Использует приемы Small talk (погода,праздники, события, отдых, путешествия и экскурсии,искусство и хобби, интересы, спорт, покупки, пробки на дорогах, новости, события в городе)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Говорит комплимент, похвалу (про компании,про сайт, собеседнику)",
+              "displayName": "Говорит комплимент, похвалу (про компании,про сайт, собеседнику)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Использует юмор (анекдот, шутка)",
+              "displayName": "Использует юмор (анекдот, шутка)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Итого УСТАНОВЛЕНИЕ КОНТАКТА",
+              "displayName": "Итого УСТАНОВЛЕНИЕ КОНТАКТА",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Этап ПРОГРАММИРОВАНИЯ",
+              "displayName": "Этап ПРОГРАММИРОВАНИЯ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Использует прграммирование в начале разговора, чтобы контроль хода общения был на стороне менеджера",
+              "displayName": "Использует прграммирование в начале разговора, чтобы контроль хода общения был на стороне менеджера",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "На протяжении всего диалога менеджер \"ведет\", а не наоборот",
+              "displayName": "На протяжении всего диалога менеджер \"ведет\", а не наоборот",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Итого ПРОГРАММИРОВАНИЕ",
+              "displayName": "Итого ПРОГРАММИРОВАНИЕ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Этап СОЗДАНИЯ ПОТРЕБНОСТИ",
+              "displayName": "Этап СОЗДАНИЯ ПОТРЕБНОСТИ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Задал обязательные вопросы",
+              "displayName": "Задал обязательные вопросы",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Делает презентацию компании с перечислением услуг, которые мы можем предоставить",
+              "displayName": "Делает презентацию компании с перечислением услуг, которые мы можем предоставить",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Не говорит \"Мы оператор/провайдер интернет услуг\"",
+              "displayName": "Не говорит \"Мы оператор/провайдер интернет услуг\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Выясняет чем занимается компания, какая сфера деятельности",
+              "displayName": "Выясняет чем занимается компания, какая сфера деятельности",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Выясняет подключена ли услуга интернет? Какой провайдер? Устраивает ли скорость , качество услуги интернет",
+              "displayName": "Выясняет подключена ли услуга интернет? Какой провайдер? Устраивает ли скорость , качество услуги интернет",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Если все устраивает, узнает возможности предоставления резервного канала",
+              "displayName": "Если все устраивает, узнает возможности предоставления резервного канала",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Узнает, о случаях атак, для дальнейшего предложения услуги DDOS - защиты",
+              "displayName": "Узнает, о случаях атак, для дальнейшего предложения услуги DDOS - защиты",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Задает вопросы для того, чтобы бы предложить наши дополнительнительные услуги (Колокейшн, видеонаблюдения, облачные решения и другие)",
+              "displayName": "Задает вопросы для того, чтобы бы предложить наши дополнительнительные услуги (Колокейшн, видеонаблюдения, облачные решения и другие)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Итого СОЗДАНИЯ ПОТРЕБНОСТИ",
+              "displayName": "Итого СОЗДАНИЯ ПОТРЕБНОСТИ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Этап ПРЕЗЕНТАЦИЯ",
+              "displayName": "Этап ПРЕЗЕНТАЦИЯ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Делает презентацию 2-3 услуг, которые подходят по сфере деятельности, выделяя преимущества и выгоды каждой услуги. (видеонаблюдение, виртуальная АТС, облачное хранение, защита DDOS-атак)",
+              "displayName": "Делает презентацию 2-3 услуг, которые подходят по сфере деятельности, выделяя преимущества и выгоды каждой услуги. (видеонаблюдение, виртуальная АТС, облачное хранение, защита DDOS-атак)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Рассказывает о положительных отзывах или успешных кейсах, связанных с дополнительными услугами",
+              "displayName": "Рассказывает о положительных отзывах или успешных кейсах, связанных с дополнительными услугами",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Делает предложение отправить КП по новым услугам или попробовать тестовый период (если есть)",
+              "displayName": "Делает предложение отправить КП по новым услугам или попробовать тестовый период (если есть)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Менеджер знает продукт о котором рассказывает и не допускает ошибок",
+              "displayName": "Менеджер знает продукт о котором рассказывает и не допускает ошибок",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Итого ПРЕЗЕНТАЦИЯ",
+              "displayName": "Итого ПРЕЗЕНТАЦИЯ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Этап РАБОТА С СОМНЕНИЯМИ",
+              "displayName": "Этап РАБОТА С СОМНЕНИЯМИ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Отрабатывает все возражения, без исключения в 100%",
+              "displayName": "Отрабатывает все возражения, без исключения в 100%",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Присоединяется, когда отрабатывает возражения",
+              "displayName": "Присоединяется, когда отрабатывает возражения",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Аргументы на отработку возражения соответствуют возражению",
+              "displayName": "Аргументы на отработку возражения соответствуют возражению",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Не спорит с клиентом, не использует формулировки, которые нарушают границы клиента",
+              "displayName": "Не спорит с клиентом, не использует формулировки, которые нарушают границы клиента",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "После отработки возражения идет предложение отправки КП для начала сотрудничества",
+              "displayName": "После отработки возражения идет предложение отправки КП для начала сотрудничества",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Итого РАБОТА С СОМНЕНИЯМИ",
+              "displayName": "Итого РАБОТА С СОМНЕНИЯМИ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ЭТАП ЗАВЕРШЕНИЯ",
+              "displayName": "ЭТАП ЗАВЕРШЕНИЯ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Уточняет , остались ли у клиента вопросы, сомнения",
+              "displayName": "Уточняет , остались ли у клиента вопросы, сомнения",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Уточняет куда удобнее клиенту получить КП, если договорились об отправке",
+              "displayName": "Уточняет куда удобнее клиенту получить КП, если договорились об отправке",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Спросить к какой дате необходимо предоставить услугу",
+              "displayName": "Спросить к какой дате необходимо предоставить услугу",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Резюмировал разговор",
+              "displayName": "Резюмировал разговор",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Озвучивает следующие шаги действий со сроками",
+              "displayName": "Озвучивает следующие шаги действий со сроками",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Оставил свои контактные данные и поблагодарил за звонок",
+              "displayName": "Оставил свои контактные данные и поблагодарил за звонок",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Итого ЗАВЕРШЕНИЕ",
+              "displayName": "Итого ЗАВЕРШЕНИЕ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ВСЕГО",
+              "displayName": "ВСЕГО",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Транскрибация",
+              "displayName": "Транскрибация",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "14d56127-c8d1-42b6-9adf-79b43489e747",
+      "name": "Append row (Входящие чеклист)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -848,
+        128
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "MjVZ9vkfpgTkT9fP",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1WX06lWTYYZBdLHngZE9eO37fGQKNKWoX",
+          "mode": "list",
+          "cachedResultName": "Папка с аудио",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1WX06lWTYYZBdLHngZE9eO37fGQKNKWoX"
+        },
+        "event": "fileUpdated",
+        "options": {}
+      },
+      "id": "f6d66269-1bcd-4986-912e-e22f65e5f88d",
+      "name": "Google Drive Trigger1",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2432,
+        640
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "sKOt0eCoys26t4LB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "3e633661-2cf6-478a-9788-a31255ca108e",
+      "name": "Download file1",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -2256,
+        512
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "sKOt0eCoys26t4LB",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "42909c92-cb0b-4ee2-8d48-05dce0bd89f4",
+      "name": "Transcribe1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        -2096,
+        704
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "UsPZgiOOxXC2tRoB",
+          "name": "OpenAi myAccount"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.text }}"
+            },
+            {
+              "content": "=# Обзор\nТы являешься супер экспертом, который специализируется на глубоком анализе записей встреч\n\nТы получаешь полную транскрибацию звонка в виде сплошного текста. Твоя задача — сохранить весь исходный текст, но разделить его на реплики и явно пометить, где говорит продавец, а где говорит клиент.\n\n# Продавцы компании\nИмена Продавцов: Елизавета \n\n# Название компании\nВесткол\n\n# Роль\nПрочитай транскрибацию и добавь перед каждой репликой соответствующую приписку:\nЕсли говорит продавец, добавь в начале строки \"Продавец:\".\nЕсли говорит клиент, добавь в начале строки \"Клиент:\".\n\nТекст не сокращай, структуру не меняй, ничего не удаляй и не переписывай, только добавляй нужные приписки.\n\n#Вывод\nВывод должен быть в таком формате через новую строчку!\n\nКлиент:\nПродавец:\n\n# Задача\n\nТвоя задача - корректно и четко распределить роли. Продавец как правило рассказывает про клуб, преимущества. Следи за этим перед распределением. Не должно быть такого, что текст клиента приписывается менеджеру\n\nТекущая дата и время: {{ $now }}",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5a964ec2-f093-422d-993e-d7f806af38f6",
+      "name": "Message a model1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -1936,
+        544
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "UsPZgiOOxXC2tRoB",
+          "name": "OpenAi myAccount"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Текст аудио: {{ $json.message.content }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=# Overview\nТы — профессиональный аналитик продаж и коммуникаций, твоя задача — по тексту диалога анализировать эффективность работы менеджера, определять этапы воронки, выявлять потребности клиента и указывать зоны роста.\n\nТебе надо сформировать следующие переменные. В тексте дается пример того, что надо писать. НЕ ЖАДНИЧАЙ НА ТЕКСТ. ОТВЕЧАЙ ПОДРОБНО И РАЗВЕРНУТО.\n\nТебе передается реальный диалог между менеджером и клиентом (текст аудио)\n\n# Role\n\nТвоя задача — строго по структуре output (см. ниже) заполнить все поля, даже если какие-то данные отсутствуют — в этом случае пиши \"нет данных\" или давай максимально вероятный ответ по контексту.\n\nВся логика должна быть развернута и обоснована — особенно там, где ты выставляешь проценты или даёшь субъективные оценки. Не додумывай имена и факты, если их нет в тексте, но логически интерпретируй смысл сказанного.\n\nПеред анализом внимательно изучи структуру и описание каждого поля.\n\n# Output \n\nВОТ ПЕРЕМЕННЫЕ КОТОРЫЕ НУЖНО СФОРМИРОВАТЬ:\n\n\"summary\" — Краткое резюме разговора (5–15 предложений):\nЧто обсудили, на чем сделали акцент, каков общий настрой клиента, какой результат по итогу встречи.\n\n\"client_talks_most\" — Кто говорил больше (да/нет + краткое пояснение). Да/Нет. Объясни, почему: например, клиент активно делился опытом и вопросами или, наоборот, отвечал коротко, а инициативу держал менеджер.\n\nclient_name — Имя клиента (по возможности ФИО). Пример: Иванов Иван.\n\nstyle_adaptation — Адаптация стиля менеджера под клиента (да/нет + пояснение). Да/Нет. Поясни — использовал ли менеджер лексику и темп, близкий клиенту, подстраивался ли под его энергетику. 5-8 предложений с цитатами\n\ntarget_client — Целевой ли клиент для клуба. Да/Нет. Владелец агентства, есть запрос на рост и развитие.\n\nclient_needs — Основные потребности и мотивация клиента.Зачем в клуб, чего ожидает, какой результат хочет получить. 5-8 предложений с цитатами\n\ncontact_establishment.value — Оценка установления контакта (0–100).  Насколько успешно менеджер установил контакт: был ли смолток, удалось ли расположить клиента, плавность перехода к делу.\n\ncontact_establishment.explanation — Пояснение по установлению контакта. Как прошел первый этап, были ли барьеры, насколько быстро удалось перейти к сути. 5-8 предложений с цитатами\nй\n\nqualification.value — Квалификация клиента (0–100). Насколько глубоко выяснили, кто клиент, его контекст, источник знакомства с клубом, мотивацию на данном этапе.\n\nqualification.explanation — Пояснение по квалификации. Какие вопросы были заданы, насколько полно менеджер раскрыл контекст и мотивацию клиента. 5-8 предложений с цитатами\n\nneeds_identification.value — Оценка выявления потребностей (0–100). Насколько четко и глубоко выявлены реальные потребности и цели клиента.\n\nneeds_identification.explanation — Пояснение по выявлению потребностей. Какие запросы и задачи клиента были зафиксированы, насколько полно менеджер понял ожидания. 5-8 предложений с цитатами\n\n\nproduct_presentation.value — Оценка презентации продукта (0–100). Насколько презентация продукта была адаптирована под задачи клиента.\n\nproduct_presentation.explanation — Пояснение по презентации. Какие выгоды и решения были показаны, насколько персонализированно менеджер рассказывал о клубе. 5-8 предложений с цитатами\n\nobjection_handling.value — Оценка работы с возражениями (0–100). Как менеджер работал с возражениями, насколько эффективно снял опасения клиента.\n\nobjection_handling.explanation — Пояснение по работе с возражениями. Какие вопросы или возражения звучали, как менеджер их закрыл. 5-8 предложений с цитатами\n\nhidden_objections — Скрытые возражения, которые не были отработаны. Запиши неочевидные опасения, которые могли остаться. 5-8 предложений с цитатами\n\n\nclosing.value — Оценка закрытия сделки (0–100). Была ли попытка закрытия (например, предложен ван-тайм оффер), насколько корректно и уверенно.\n\nclosing.explanation — Пояснение по закрытию сделки. Что именно предложил менеджер, как отреагировал клиент, было ли согласие или нет. 5-8 предложений с цитатами\n\nsale_probability.value — Вероятность продажи (0–100). Твоя субъективная оценка, насколько клиент готов купить.\n\nsale_probability.explanation — Краткое объяснение вероятности продажи. Что говорит за и против, какие сигналы дал клиент. 5-8 предложений с цитатами\n\n\nnext_step — Следующий шаг после встречи. Что согласовали, какие действия стоит сделать менеджеру дальше, чтобы не терять динамику.\n\nВ ответ иногда включай цитаты из ответов\n\n"
+        }
+      },
+      "id": "d0abad35-76ce-43db-8b84-2d3d77b7f60b",
+      "name": "AI Agent1",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        -1392,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "id": "54885765-5ad5-4a0f-82a0-19a5030b89c2",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1392,
+        912
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "UsPZgiOOxXC2tRoB",
+          "name": "OpenAi myAccount"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "de03fa1b-1b80-4a19-9ae6-0549abda1249",
+      "name": "Auto-fixing Output Parser1",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1184,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "id": "46fd37a9-61ea-4c5a-9683-703b9c87847b",
+      "name": "OpenAI Chat Model3",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1296,
+        1104
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "UsPZgiOOxXC2tRoB",
+          "name": "OpenAi myAccount"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"summary\": {\n      \"type\": \"string\",\n      \"description\": \"Краткое резюме разговора (5–15 предложений): что обсудили, на чем сделали акцент, каков общий настрой клиента, какой результат по итогу встречи. Укажи основные моменты, выводы и решения, к которым пришли.\"\n    },\n    \"client_talks_most\": {\n      \"type\": \"string\",\n      \"description\": \"Напиши кто говорил больше (да/нет + краткое пояснение). Например: 'Да, клиент делился своими вопросами и опытом, задавал уточняющие вопросы', или 'Нет, менеджер вел беседу, клиент отвечал коротко'.\"\n    },\n    \"client_name\": {\n      \"type\": \"string\",\n      \"description\": \"Напиши имя клиента (по возможности ФИО). Например: 'Иванов Иван'.\"\n    },\n    \"style_adaptation\": {\n      \"type\": \"string\",\n      \"description\": \"Была ли адаптация стиля менеджера под клиента (да/нет + пояснение). Оцени, насколько менеджер подстроился под стиль общения клиента, использовал ли его лексику, темп, энергетику, формат шуток или профессиональный сленг. 8-15 предложений. С цитатами из транскрибации\"\n    },\n    \"target_client\": {\n      \"type\": \"string\",\n      \"description\": \"Оцени целевой ли клиент для клуба (да/нет + пояснение). Например: 'Да, владелец агентства, есть запрос на рост и развитие', или 'Нет, частный специалист, не планирует масштабироваться'.\"\n    },\n    \"client_needs\": {\n      \"type\": \"string\",\n      \"description\": \"Оцени основные потребности и мотивация клиента. Зачем клиенту вступать в клуб, каких целей он хочет достичь, что для него важно. 8-15 предложений. С цитатами из транскрибации\"\n    },\n    \"manager_responsible\": {\n      \"type\": \"string\",\n      \"description\": \"Скажи ФИО менеджера, который проводил встречу или несет ответственность за клиента.\"\n    },\n    \"contact_establishment\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"value\": {\n          \"type\": \"number\",\n          \"description\": \"Дай оценку установления контакта (0–100). Насколько успешно менеджер установил контакт: был ли смолток, удалось ли расположить клиента, плавность перехода к делу.\"\n        },\n        \"explanation\": {\n          \"type\": \"string\",\n          \"description\": \"дай пояснение по установлению контакта. Как прошел первый этап встречи, были ли барьеры, удалось ли быстро перейти к сути, насколько доверительно сложилось общение. 8-15 предложений. С цитатами из транскрибации\"\n        }\n      },\n      \"required\": [\"value\", \"explanation\"]\n    },\n    \"qualification\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"value\": {\n          \"type\": \"number\",\n          \"description\": \"Дай оценку квалификации клиента (0–100). Насколько глубоко выяснили, кто клиент, его контекст, источник знакомства с клубом, мотивацию на данном этапе.\"\n        },\n        \"explanation\": {\n          \"type\": \"string\",\n          \"description\": \"Дай пояснения по квалификации. Какие вопросы были заданы, насколько полно менеджер раскрыл контекст и мотивацию клиента: спросил ли о бизнесе, текущих задачах, почему ищет решение сейчас, как узнал о клубе. 8-15 предложений. С цитатами из транскрибации\"\n        }\n      },\n      \"required\": [\"value\", \"explanation\"]\n    },\n    \"needs_identification\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"value\": {\n          \"type\": \"number\",\n          \"description\": \"Дай оценку выявления потребностей (0–100). Насколько четко и глубоко выявлены реальные потребности и цели клиента, получены как минимум 4 задачи или проблемы, использованы уточняющие вопросы.\"\n        },\n        \"explanation\": {\n          \"type\": \"string\",\n          \"description\": \"Дай пояснения по выявлению потребностей. Какие задачи, боли и ожидания клиента были зафиксированы, насколько глубоко менеджер понял истинные мотивы и цели. 8-15 предложений. С цитатами из транскрибации\"\n        }\n      },\n      \"required\": [\"value\", \"explanation\"]\n    },\n    \"product_presentation\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"value\": {\n          \"type\": \"number\",\n          \"description\": \"Дай оценку презентации продукта (0–100). Насколько презентация была адаптирована под задачи клиента, использованы ли цитаты, кейсы, примеры, метафоры, даны ли конкретные форматы клуба и ближайшие мероприятия.\"\n        },\n        \"explanation\": {\n          \"type\": \"string\",\n          \"description\": \"Дай пояснения по презентации. Какие выгоды и решения были показаны, насколько персонализированно менеджер рассказывал о клубе, делал ли акцент на боли и мотивации клиента. 8-15 предложений. С цитатами из транскрибации\"\n        }\n      },\n      \"required\": [\"value\", \"explanation\"]\n    },\n    \"objection_handling\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"value\": {\n          \"type\": \"number\",\n          \"description\": \"Дай оценку работы с возражениями (0–100). Как менеджер работал с возражениями, насколько эффективно снял опасения клиента, отработал хотя бы два типа возражений.\"\n        },\n        \"explanation\": {\n          \"type\": \"string\",\n          \"description\": \"Дай пояснения по работе с возражениями. Какие вопросы или возражения звучали, как менеджер их закрыл, что сработало лучше всего. 8-15 предложений. С цитатами из транскрибации\"\n        }\n      },\n      \"required\": [\"value\", \"explanation\"]\n    },\n    \"hidden_objections\": {\n      \"type\": \"string\",\n      \"description\": \"Скажи скрытые возражения, которые не были отработаны. Запиши неочевидные опасения или вопросы, которые могли остаться у клиента. 8-15 предложений. С цитатами из транскрибации\"\n    },\n    \"closing\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"value\": {\n          \"type\": \"number\",\n          \"description\": \"Дай оценку закрытия сделки (0–100). Была ли попытка закрытия (например, предложен ван-тайм оффер), насколько корректно и уверенно менеджер сделал предложение.\"\n        },\n        \"explanation\": {\n          \"type\": \"string\",\n          \"description\": \"Дай пояснения по закрытию сделки. Что именно предложил менеджер, как отреагировал клиент, было ли согласие или нет, что повлияло на решение. 8-15 предложений. С цитатами из транскрибации\"\n        }\n      },\n      \"required\": [\"value\", \"explanation\"]\n    },\n    \"sale_probability\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"value\": {\n          \"type\": \"number\",\n          \"description\": \"Скажи вероятность продажи (0–100). Субъективная оценка, насколько клиент готов купить после встречи.\"\n        },\n        \"explanation\": {\n          \"type\": \"string\",\n          \"description\": \"Дай краткое объяснение вероятности продажи. Что говорит за и против, какие сигналы дал клиент (например, выражал интерес, задавал вопросы, назвал сроки или условия). 2-5 предложений.\"\n        }\n      },\n      \"required\": [\"value\", \"explanation\"]\n    },\n    \"next_step\": {\n      \"type\": \"string\",\n      \"description\": \"Скажи следующий шаг после встречи. Что согласовали, какие действия стоит сделать менеджеру дальше, чтобы не потерять динамику. Например: 'Отправить презентацию', 'Назначить повторную встречу', 'Дать дополнительную информацию'.\"\n    }\n  },\n  \"required\": [\n    \"summary\",\n    \"client_talks_most\",\n    \"client_name\",\n    \"style_adaptation\",\n    \"target_client\",\n    \"client_needs\",\n    \"manager_responsible\",\n    \"contact_establishment\",\n    \"qualification\",\n    \"needs_identification\",\n    \"product_presentation\",\n    \"objection_handling\",\n    \"hidden_objections\",\n    \"closing\",\n    \"sale_probability\",\n    \"next_step\"\n  ]\n}\n"
+      },
+      "id": "ee638d7d-0212-416d-af1a-3a405ba2b27d",
+      "name": "Structured Output Parser1",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -1104,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-5-nano"
+        },
+        "options": {}
+      },
+      "id": "26acc7c3-6fd1-4850-a477-8ad59bd2fb1b",
+      "name": "OpenAI Chat Model4",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1232,
+        512
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "UsPZgiOOxXC2tRoB",
+          "name": "OpenAi myAccount"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "300cdee7-1b2b-4d5c-8b03-7e7e65b7c69b",
+      "name": "Auto-fixing Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        -1120,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5-nano",
+          "mode": "list",
+          "cachedResultName": "gpt-5-nano"
+        },
+        "options": {}
+      },
+      "id": "adf669bf-1d8d-479e-b4a3-c002ef31e044",
+      "name": "OpenAI Chat Model2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1328,
+        320
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "UsPZgiOOxXC2tRoB",
+          "name": "OpenAi myAccount"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Текст аудио: {{ $json.message.content }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=# Overview\nТы — эксперт по контролю качества звонков.  \nУ тебя есть транскрибация звонка.  \nТвоя задача:\n1. Определить — звонок входящий (клиент позвонил в компанию) или исходящий (продавец звонит клиенту).  \n2. Выставить оценку по каждому чеклист-пункту.  \n3. Вернуть иерархический JSON в точности по структуре таблицы.  \n\n# Rules\n- Формат ответа: строго JSON-объект.  \n- В ответе ДОЛЖЕН быть только один JSON-объект.  \n- Никакого текста, пояснений или комментариев.  \n- Для каждого чеклист-пункта укажи число:  \n  - `1` — пункт выполнен явно  \n  - `0.5` — выполнен частично  \n  - `0` — не выполнен  \n- Если информации нет — ставь `0`.  \n- В каждом блоке добавляй поле `\"Итого\"`, где суммируешь все значения этого блока.  \n- В конце добавь `\"ВСЕГО\"`, где сумма всех блоков.  \n- Обязательно добавь поле `\"Тип звонка\"` со значением `\"Входящий\"` или `\"Исходящий\"`.  \n\n# Output\nПример JSON-структуры:\n\n{\n  \"Тип звонка\": \"Исходящий\",\n  \"Этап ПРИВЕТСТВИЕ\": {\n    \"Время до соединения с менеджером\": 0,\n    \"Корпоративное приветсвие\": 1,\n    \"Тон добродушный, приветливый, есть улыбка в голосе\": 0.5,\n    \"Не тараторит, не съедает слова\": 1,\n    \"Озвучивает цель звонка инфоповод\": 1,\n    \"Не использует фразу 'вам удобно разговаривать'\": 1,\n    \"Не использует фразу 'как к вам можно обращаться'\": 1,\n    \"Итого\": 5.5\n  },\n  \"Этап УСТАНОВЛЕНИЕ КОНТАКТА\": {\n    \"Обращается по имени, минимум 2 раза\": 0.5,\n    \"Не перебивает, дослушивает до конца\": 1,\n    \"Говорит на простом понятном языке\": 1,\n    \"Отсутствует сухой формальный тон\": 0.5,\n    \"Общается на 'равных'\": 0.5,\n    \"Использует приемы Small talk\": 0,\n    \"Говорит комплимент, похвалу\": 1,\n    \"Использует юмор\": 0,\n    \"Итого\": 4.5\n  },\n  \"Этап ПРОГРАММИРОВАНИЯ\": {\n    \"Использует программирование в начале разговора\": 0,\n    \"На протяжении всего диалога менеджер 'ведет'\": 1,\n    \"Итого\": 1\n  },\n  \"Этап СОЗДАНИЯ ПОТРЕБНОСТИ\": {\n    \"Задал обязательные вопросы\": 0,\n    \"Делает презентацию компании\": 0.5,\n    \"Не говорит 'Мы оператор/провайдер интернет услуг'\": 1,\n    \"Выясняет чем занимается компания\": 1,\n    \"Выясняет подключена ли услуга интернет\": 0,\n    \"Если все устраивает, узнает про резервный канал\": 0,\n    \"Узнает о случаях атак\": 0,\n    \"Задает вопросы про доп. услуги\": 0,\n    \"Итого\": 2.5\n  },\n  \"Этап ПРЕЗЕНТАЦИЯ\": {\n    \"Делает презентацию 2-3 услуг\": 0,\n    \"Рассказывает о кейсах или отзывах\": 0,\n    \"Предлагает отправить КП или тестовый период\": 0,\n    \"Менеджер знает продукт\": 1,\n    \"Итого\": 1\n  },\n  \"Этап РАБОТА С СОМНЕНИЯМИ\": {\n    \"Отрабатывает все возражения\": 0,\n    \"Присоединяется при отработке возражений\": 0,\n    \"Аргументы соответствуют возражению\": 0,\n    \"Не спорит с клиентом\": 1,\n    \"Предлагает отправить КП после отработки\": 0,\n    \"Итого\": 1\n  },\n  \"ЭТАП ЗАВЕРШЕНИЯ\": {\n    \"Уточняет остались ли вопросы\": 0,\n    \"Уточняет куда отправить КП\": 0,\n    \"Спросить к какой дате нужна услуга\": 0,\n    \"Резюмировал разговор\": 0,\n    \"Озвучивает следующие шаги\": 0,\n    \"Оставил контакты и поблагодарил\": 1,\n    \"Итого\": 1\n  },\n  \"ВСЕГО\": 16.5\n}\n\n# Output Format\nВерни только JSON в этом формате.  \nБез текста, пояснений или схемы.\n"
+        }
+      },
+      "id": "a390e7df-e02e-4ab5-99e3-518dbf8aad45",
+      "name": "AI Agent2",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        -1328,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"Тип звонка\": \"Исходящий\",\n  \"Этап ПРИВЕТСТВИЕ\": {\n    \"Время до соединения с менеджером\": 0,\n    \"Корпоративное приветсвие\": 0,\n    \"Тон добродушный, приветливый, есть улыбка в голосе\": 0,\n    \"Не тараторит, не съедает слова\": 0,\n    \"Озвучивает цель звонка инфоповод\": 0,\n    \"Не использует фразу 'вам удобно разговаривать'\": 0,\n    \"Не использует фразу 'как к вам можно обращаться'\": 0,\n    \"Итого\": 0\n  },\n  \"Этап УСТАНОВЛЕНИЕ КОНТАКТА\": {\n    \"Обращается по имени, минимум 2 раза\": 0,\n    \"Не перебивает, дослушивает до конца\": 0,\n    \"Говорит на простом понятном языке\": 0,\n    \"Отсутствует сухой формальный тон\": 0,\n    \"Общается на 'равных'\": 0,\n    \"Использует приемы Small talk\": 0,\n    \"Говорит комплимент, похвалу\": 0,\n    \"Использует юмор\": 0,\n    \"Итого\": 0\n  },\n  \"Этап ПРОГРАММИРОВАНИЯ\": {\n    \"Использует программирование в начале разговора\": 0,\n    \"На протяжении всего диалога менеджер 'ведет'\": 0,\n    \"Итого\": 0\n  },\n  \"Этап СОЗДАНИЯ ПОТРЕБНОСТИ\": {\n    \"Задал обязательные вопросы\": 0,\n    \"Делает презентацию компании\": 0,\n    \"Не говорит 'Мы оператор/провайдер интернет услуг'\": 0,\n    \"Выясняет чем занимается компания\": 0,\n    \"Выясняет подключена ли услуга интернет\": 0,\n    \"Если все устраивает, узнает про резервный канал\": 0,\n    \"Узнает о случаях атак\": 0,\n    \"Задает вопросы про доп. услуги\": 0,\n    \"Итого\": 0\n  },\n  \"Этап ПРЕЗЕНТАЦИЯ\": {\n    \"Делает презентацию 2-3 услуг\": 0,\n    \"Рассказывает о кейсах или отзывах\": 0,\n    \"Предлагает отправить КП или тестовый период\": 0,\n    \"Менеджер знает продукт\": 0,\n    \"Итого\": 0\n  },\n  \"Этап РАБОТА С СОМНЕНИЯМИ\": {\n    \"Отрабатывает все возражения\": 0,\n    \"Присоединяется при отработке возражений\": 0,\n    \"Аргументы соответствуют возражению\": 0,\n    \"Не спорит с клиентом\": 0,\n    \"Предлагает отправить КП после отработки\": 0,\n    \"Итого\": 0\n  },\n  \"ЭТАП ЗАВЕРШЕНИЯ\": {\n    \"Уточняет остались ли вопросы\": 0,\n    \"Уточняет куда отправить КП\": 0,\n    \"Спросить к какой дате нужна услуга\": 0,\n    \"Резюмировал разговор\": 0,\n    \"Озвучивает следующие шаги\": 0,\n    \"Оставил контакты и поблагодарил\": 0,\n    \"Итого\": 0\n  },\n  \"ВСЕГО\": 0\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -992,
+        576
+      ],
+      "id": "1323ba24-cb26-4a5e-873a-52b52e2ead88",
+      "name": "Structured Output Parser"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Drive Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Download file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file1": {
+      "main": [
+        [
+          {
+            "node": "Transcribe1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe1": {
+      "main": [
+        [
+          {
+            "node": "Message a model1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet (Анализ)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent2": {
+      "main": [
+        [
+          {
+            "node": "Append row (Входящие чеклист)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f97bf24b-3624-40aa-b04f-60206452ba0a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "48a2e0b86afa16ae3d01bd317758c3d15bd6e2ecdb49532e42f25af938898fb7"
+  },
+  "id": "KKVaQn75jIBSCvPA",
+  "tags": []
+}
