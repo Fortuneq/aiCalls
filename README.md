@@ -1,14 +1,24 @@
 # aiCalls — automated sales-call analysis
 
-A Python port of an n8n workflow that analyses sales calls end to end:
+A Python port of an n8n workflow that analyses sales calls end to end: new recordings appear in Google Drive, get transcribed, speaker roles are labelled, an LLM reviews the call against the sales process and a quality checklist, and the results land in Google Sheets.
 
-1. watches a Google Drive folder for new audio recordings
-2. downloads and transcribes them with OpenAI Whisper
-3. labels the speakers (salesperson / client)
-4. runs an AI review of the call: sales-process stages and a quality checklist
-5. writes the results to Google Sheets
+## Pipeline
 
-The original n8n workflow export is included as JSON, along with HTML exports of the sheet templates (analysis columns and the checklist).
+```mermaid
+flowchart LR
+    GD[(Google Drive<br/>folder)] -->|new audio| DL[Download]
+    DL --> W["Whisper<br/>transcription"]
+    W --> RL["GPT<br/>speaker roles"]
+    RL --> AN["GPT<br/>sales-stage analysis"]
+    RL --> CL["GPT<br/>quality checklist"]
+    AN & CL --> GS[(Google Sheets<br/>analysis + checklist tabs)]
+```
+
+## What is evaluated
+
+**Sales-process analysis** — summary, who talks most, adaptation to the client's style, the client's name and context, contact establishment, qualification, need identification, presentation, objection handling, closing and next steps.
+
+**Checklist** — stage-by-stage criteria (greeting, contact, needs, presentation, objections, closing) scored per call and written to the checklist sheet.
 
 ## Setup
 
@@ -37,8 +47,17 @@ python call_automation.py
 }
 ```
 
+## Files
+
+```
+call_automation.py                — the pipeline
+CallAutomatizationЛейсан.json     — original n8n workflow export
+*.html                            — sheet templates (analysis columns and checklist)
+config.json                       — settings (fill in your own values)
+```
+
 ## Stack
 
 Python, OpenAI API (Whisper + GPT), Google Drive API, Google Sheets (gspread).
 
-A more complete version of this idea, with a database and a web dashboard, lives in [voiceAI](https://github.com/Fortuneq/voiceAI).
+A more complete version of this idea — with a database, manager detection and a web dashboard — lives in [voiceAI](https://github.com/Fortuneq/voiceAI).
