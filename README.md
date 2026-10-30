@@ -1,103 +1,44 @@
-# AI Автоматизация Анализа Звонков
+# aiCalls — automated sales-call analysis
 
-Точное воспроизведение n8n workflow для автоматизации анализа звонков с помощью Python.
+A Python port of an n8n workflow that analyses sales calls end to end:
 
-## Описание
+1. watches a Google Drive folder for new audio recordings
+2. downloads and transcribes them with OpenAI Whisper
+3. labels the speakers (salesperson / client)
+4. runs an AI review of the call: sales-process stages and a quality checklist
+5. writes the results to Google Sheets
 
-Система автоматически:
-1. Мониторит папку Google Drive на новые аудиофайлы
-2. Скачивает и транскрибирует аудио через OpenAI Whisper
-3. Размечает роли участников диалога (продавец/клиент)
-4. Проводит детальный AI анализ:
-   - Анализ этапов продажного процесса
-   - Оценка по чеклисту критериев качества
-5. Сохраняет результаты в Google Sheets
+The original n8n workflow export is included as JSON, along with HTML exports of the sheet templates (analysis columns and the checklist).
 
-## Установка
+## Setup
 
-1. Установите зависимости:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Настройте Google API:
-   - Создайте проект в Google Cloud Console
-   - Включите Google Drive API и Google Sheets API
-   - Создайте Service Account и скачайте JSON ключ
-   - Предоставьте доступ к папке Drive и таблице Sheets
+1. Create a Google Cloud project, enable the Drive and Sheets APIs, create a service account and download its JSON key.
+2. Share the Drive folder and the target spreadsheet with the service account.
+3. Run the script once to generate `config.json`, then fill it in:
 
-3. Получите OpenAI API ключ
-
-4. Запустите программу для создания config.json:
 ```bash
 python call_automation.py
 ```
 
-5. Заполните config.json вашими данными:
 ```json
 {
-  "openai_api_key": "ваш_openai_ключ",
-  "google_credentials_path": "путь_к_service_account.json",
-  "google_drive_folder_id": "ID_папки_с_аудио",
-  "spreadsheet_id": "ID_Google_таблицы",
-  "analysis_sheet_name": "Лист1",
-  "checklist_sheet_name": "Входящие Елизавета",
-  "manager_names": ["Елизавета"],
-  "company_name": "Весткол"
+  "openai_api_key": "<your OpenAI key>",
+  "google_credentials_path": "<path to service-account.json>",
+  "google_drive_folder_id": "<Drive folder id>",
+  "spreadsheet_id": "<Google Sheet id>",
+  "analysis_sheet_name": "Call analysis",
+  "checklist_sheet_name": "Checklist",
+  "manager_names": ["Alice"],
+  "company_name": "Acme"
 }
 ```
 
-## Использование
+## Stack
 
-### Мониторинг папки Google Drive
-```bash
-python call_automation.py
-```
+Python, OpenAI API (Whisper + GPT), Google Drive API, Google Sheets (gspread).
 
-### Обработка одного файла
-```bash
-python call_automation.py путь/к/аудиофайлу.mp3
-```
-
-## Структура workflow
-
-1. **Google Drive Trigger** - мониторинг папки каждую минуту
-2. **Download file** - скачивание аудиофайла
-3. **Transcribe** - транскрибация через OpenAI Whisper
-4. **Message a model** - разметка ролей (продавец/клиент)
-5. **Параллельный анализ**:
-   - **AI Agent1**: детальный анализ продаж
-   - **AI Agent2**: анализ по чеклисту
-6. **Google Sheets**: сохранение результатов в две таблицы
-
-## Поддерживаемые форматы аудио
-
-- MP3, WAV, M4A, MP4, OGG, WebM
-
-## Анализ включает
-
-### Детальный анализ продаж:
-- Резюме разговора
-- Оценка установления контакта
-- Квалификация клиента
-- Выявление потребностей
-- Презентация продукта
-- Работа с возражениями
-- Закрытие сделки
-- Вероятность продажи
-
-### Чеклист качества:
-- Этап приветствия
-- Установление контакта
-- Программирование
-- Создание потребности
-- Презентация
-- Работа с сомнениями
-- Завершение звонка
-
-## Требования
-
-- Python 3.7+
-- OpenAI API ключ
-- Google Cloud Service Account
-- Доступ к Google Drive и Google Sheets# aiCalls
+A more complete version of this idea, with a database and a web dashboard, lives in [voiceAI](https://github.com/Fortuneq/voiceAI).
